@@ -8,7 +8,7 @@ public class ImportFileTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		ImportFile if1 = new ImportFile();
 	}
 
 }
