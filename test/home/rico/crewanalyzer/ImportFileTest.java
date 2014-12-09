@@ -9,6 +9,8 @@ public class ImportFileTest {
 	@Test
 	public void test() {
 		ImportFile.openFile();
+		ImportFile.readRecords();
+		ImportFile.closedFile();
 	}
 
 }
