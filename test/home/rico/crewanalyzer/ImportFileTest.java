@@ -8,7 +8,7 @@ public class ImportFileTest {
 
 	@Test
 	public void test() {
-		ImportFile if1 = new ImportFile();
+		ImportFile.openFile();
 	}
 
 }
