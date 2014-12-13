@@ -1,17 +1,17 @@
 package home.rico.crewanalyzer;
 
 public class CrewInfo {
-	private short pin;
+	private String pin;
 	private String name;
 	private String rank;
 	private String datePromoted;
 	private String dateOfBirth;
 	private String startEmployment;
 	
-	public short getPin() {
+	public String getPin() {
 		return pin;
 	}
-	public void setPin(short pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 	public String getName() {
