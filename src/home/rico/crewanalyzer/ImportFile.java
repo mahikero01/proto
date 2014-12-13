@@ -27,25 +27,33 @@ public class ImportFile {
 	public static ArrayList<CrewInfo> readRecords(ArrayList<CrewInfo> crewListPara) {
 		//CrewInfo currentCrew = new CrewInfo();
 		String line = "";
-		String[] currentCrewRaw;
 		
 		try {
 			while ( (line = buffer.readLine()) != null ) {
-				currentCrewRaw = line.split("\t");
+				String[] currentCrewRaw = line.split("\t");
 				CrewInfo currentCrew = new CrewInfo();
 				currentCrew.setPin(currentCrewRaw[0]);
 				currentCrew.setName(currentCrewRaw[1]);
 				currentCrew.setRank(currentCrewRaw[2]);
 				currentCrew.setDatePromoted(currentCrewRaw[3]);
 				currentCrew.setDateOfBirth(currentCrewRaw[4]);
+				if (currentCrewRaw.length == 6) {
 				currentCrew.setStartEmployment(currentCrewRaw[5]);
+				} else {
+					currentCrew.setStartEmployment(null);
+				}
 				
 				crewListPara.add(currentCrew);
+				currentCrewRaw = null;
+				currentCrew = null;
+				
 			}
 		} catch (IOException ioException) {
 			System.err.println("IO error");
+		} catch (ArrayIndexOutOfBoundsException out){
+			out.printStackTrace();
 		}
-		
+			
 		return crewListPara;
 	}
 	
