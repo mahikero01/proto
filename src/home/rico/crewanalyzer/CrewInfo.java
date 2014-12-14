@@ -44,5 +44,4 @@ public class CrewInfo {
 	public void setStartEmployment(String startEmployment) {
 		this.startEmployment = startEmployment;
 	}
-	
 }

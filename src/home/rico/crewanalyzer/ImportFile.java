@@ -3,19 +3,28 @@ package home.rico.crewanalyzer;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
-
+//class for opening and reading file "fil.text"
 public class ImportFile {
 
-	private static BufferedReader buffer;
+	private BufferedReader buffer;
+	private ArrayList<CrewInfo> crewListTemp;
 	
+	public ImportFile(ArrayList<CrewInfo> crewListRef) {
+		crewListTemp = crewListRef;
+	}
 	
-	public static void openFile() {
+	public ArrayList<CrewInfo>  run() {
+		openFile();
+		readRecords();
+		closedFile();
+		
+		return this.crewListTemp;
+	}
+	
+	//open file "fil.txt"
+	private void openFile() {
 		try {
 			buffer = new BufferedReader(new FileReader("fil.txt"));
 		} catch (IOException ioException) {
@@ -24,8 +33,8 @@ public class ImportFile {
 		}
 	}
 	
-	public static ArrayList<CrewInfo> readRecords(ArrayList<CrewInfo> crewListPara) {
-		//CrewInfo currentCrew = new CrewInfo();
+	//read records of file
+	private void readRecords() {
 		String line = "";
 		
 		try {
@@ -37,27 +46,27 @@ public class ImportFile {
 				currentCrew.setRank(currentCrewRaw[2]);
 				currentCrew.setDatePromoted(currentCrewRaw[3]);
 				currentCrew.setDateOfBirth(currentCrewRaw[4]);
+				
 				if (currentCrewRaw.length == 6) {
 				currentCrew.setStartEmployment(currentCrewRaw[5]);
 				} else {
 					currentCrew.setStartEmployment(null);
 				}
 				
-				crewListPara.add(currentCrew);
+				this.crewListTemp.add(currentCrew);
 				currentCrewRaw = null;
 				currentCrew = null;
-				
 			}
 		} catch (IOException ioException) {
 			System.err.println("IO error");
+			System.exit(1);
 		} catch (ArrayIndexOutOfBoundsException out){
 			out.printStackTrace();
 		}
-			
-		return crewListPara;
 	}
 	
-	public static void closedFile() {
+	//close file stream buffer
+	private void closedFile() {
 		if (buffer != null) {
 			try {
 				buffer.close();
@@ -66,5 +75,4 @@ public class ImportFile {
 			}
 		}
 	}
-	
 }

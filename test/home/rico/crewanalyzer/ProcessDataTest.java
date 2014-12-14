@@ -2,15 +2,13 @@ package home.rico.crewanalyzer;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
-public class ImportFileTest {
+public class ProcessDataTest {
 
 	@Test
 	public void test() {
-		
+		ProcessData pd = new ProcessData();
 	}
 
 }

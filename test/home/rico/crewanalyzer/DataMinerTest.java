@@ -2,15 +2,12 @@ package home.rico.crewanalyzer;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
-public class ImportFileTest {
+public class DataMinerTest {
 
 	@Test
 	public void test() {
-		
+		DataMiner dm = new DataMiner();
 	}
-
 }
