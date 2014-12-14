@@ -17,7 +17,7 @@ public class ProcessData {
 		ImportFile importFile = new ImportFile(crewList);
 		crewList = importFile.run();
 		
-		crewRank = DataMiner.mineRank(crewRank);
+		crewRank = DataMiner.mineRank(crewList);
 	}
 
 }
