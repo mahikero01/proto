@@ -19,7 +19,7 @@ public class ProcessData {
 		
 		rankList = DataMiner.mineRank(crewList);
 		DataMiner.tallyRank(crewList, rankList);
-		DataMiner.rankTallyReport(rankList);
+		DataMiner.createReport(rankList);
 		
 		//System.out.println(" rt");
 	}

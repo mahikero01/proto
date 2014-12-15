@@ -57,8 +57,8 @@ public class DataMiner {
 		}
 	}
 	
-	//report total count per rank and overall
-	public static void rankTallyReport(ArrayList<RankInfo> rankListRef) {
+	//report 
+	public static void createReport(ArrayList<RankInfo> rankListRef) {
 		int total = 0;
 		
 		for (RankInfo currentRank : rankListRef) {
