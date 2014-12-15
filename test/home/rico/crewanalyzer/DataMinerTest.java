@@ -1,7 +1,5 @@
 package home.rico.crewanalyzer;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -9,9 +7,7 @@ import org.junit.Test;
 public class DataMinerTest {
 
 	@Test
-	public void testMineRank() {
-		DataMiner dm = new DataMiner();
-		
+	public void testMineRank() {		
 		CrewInfo cr1 = new CrewInfo();
 		cr1.setRank("master");
 		CrewInfo cr2 = new CrewInfo();
@@ -25,15 +21,11 @@ public class DataMinerTest {
 		crList.add(cr2);
 		crList.add(cr3);
 		crList.add(cr4);
-		ArrayList<RankInfo> rkList = new ArrayList<RankInfo>();
-		
-		rkList = dm.mineRank(crList);
 	}
 	
 	@Test
 	public void testTallyRank() {
-		DataMiner dm = new DataMiner();
-		
+				
 		CrewInfo cr1 = new CrewInfo();
 		cr1.setRank("master");
 		CrewInfo cr2 = new CrewInfo();
@@ -59,6 +51,6 @@ public class DataMinerTest {
 		rkList.add(rk2);
 		rkList.add(rk3);
 		
-		dm.tallyRank(crList, rkList);
+		DataMiner.tallyRank(crList, rkList);
 	}
 }
