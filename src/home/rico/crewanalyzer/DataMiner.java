@@ -39,4 +39,11 @@ public class DataMiner {
 		
 		return rankListLocal;
 	}
+	
+	//method for tally of crew ranks/positions
+	public static ArrayList<RankInfo> tallyRank() {
+		ArrayList<RankInfo> rankListLocal = new ArrayList<RankInfo>();
+		
+		return rankListLocal;
+	}
 }
