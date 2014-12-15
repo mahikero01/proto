@@ -21,12 +21,6 @@ public class ProcessData {
 		DataMiner.tallyRank(crewList, rankList);
 		
 		ExportReport.run(rankList);
-		
-		
-		
-		//DataMiner.createReport(rankList);
-		
-		//System.out.println(" rt");
 	}
 
 }
