@@ -1,0 +1,36 @@
+4th Engineer Trainee: 13
+Able Seaman: 186
+Bosun: 69
+Captain: 43
+Chief Cook: 32
+Chief Engineer: 47
+Chief Officer: 39
+Chief Steward: 41
+Deck Boy: 17
+Deck Cadet: 39
+Electrician: 78
+Electrician Trainee: 6
+Engine Boy: 13
+Engine Cadet: 44
+Fitness Instructor: 2
+Fitter: 73
+Fourth Engineer: 40
+MESS BOY: 37
+Mess Man: 90
+Motor Man: 110
+Ordinary Seaman: 131
+Passenger.: 8
+Pump Man: 48
+Pump Man Trainee: 7
+Reefer Engineer: 3
+SAFETY INSTRUCTOR: 1
+Safety Compliance Officer: 1
+Second Cook: 14
+Second Engineer: 60
+Second Officer: 94
+Third Engineer: 77
+Third Officer: 114
+Third Officer Trainee: 16
+Wiper: 55
+
+Total Crew: 1648
