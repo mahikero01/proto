@@ -56,4 +56,16 @@ public class DataMiner {
 			}
 		}
 	}
+	
+	//report total count per rank and overall
+	public static void rankTallyReport(ArrayList<RankInfo> rankListRef) {
+		int total = 0;
+		
+		for (RankInfo currentRank : rankListRef) {
+			System.out.printf("%s: %d%n", currentRank.getRank(), currentRank.getCount());
+			total += currentRank.getCount();	
+		}
+		
+		System.out.printf("%nTotal Crew: %d", total);
+	}
 }
