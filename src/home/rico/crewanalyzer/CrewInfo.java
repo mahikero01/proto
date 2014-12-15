@@ -1,5 +1,6 @@
 package home.rico.crewanalyzer;
 
+//class for crew info
 public class CrewInfo {
 	private String pin;
 	private String name;
