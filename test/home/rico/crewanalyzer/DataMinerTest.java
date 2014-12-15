@@ -25,8 +25,8 @@ public class DataMinerTest {
 		crList.add(cr2);
 		crList.add(cr3);
 		crList.add(cr4);
-		ArrayList<String> crRank;
+		ArrayList<RankInfo> rkList = new ArrayList<RankInfo>();
 		
-		crRank = dm.mineRank(crList);
+		rkList = dm.mineRank(crList);
 	}
 }

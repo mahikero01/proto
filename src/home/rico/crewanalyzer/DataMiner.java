@@ -4,32 +4,39 @@ import java.util.ArrayList;
 
 //class for mining data from records extracted from "fil.txt"
 public class DataMiner {
-	public static ArrayList<String> mineRank(ArrayList<CrewInfo> crewListRef) {
-		ArrayList<String> crewRankTemp = new ArrayList<String>();
+	
+	//method for extracting all possible rank
+	public static ArrayList<RankInfo> mineRank(ArrayList<CrewInfo> crewListRef) {
+		ArrayList<RankInfo> rankListLocal = new ArrayList<RankInfo>();
 		String rank;
 		int flag;
 		
-		CrewInfo crewTemp;
-		crewTemp = crewListRef.get(0);
-		rank = crewTemp.getRank();
-		crewRankTemp.add(rank);
-		crewTemp = null;
+		CrewInfo crewInfoLocal = new CrewInfo();
+		RankInfo rankInfoLocal = new RankInfo();
+		crewInfoLocal = crewListRef.get(0);
+		rank = crewInfoLocal.getRank();
+		rankInfoLocal.setRank(rank);
+		rankListLocal.add(rankInfoLocal);
+		crewInfoLocal = null;
+		rankInfoLocal = null;
 		
-		for (CrewInfo crew : crewListRef) {
-			rank = crew.getRank();
+		for (CrewInfo currentCrew : crewListRef) {
+			rank = currentCrew.getRank();
 			flag = 0;
-			for (String currentRank : crewRankTemp) {
-				if (rank == currentRank) {
+			for (RankInfo currentRank : rankListLocal) {
+				if ( rank.equalsIgnoreCase(currentRank.getRank()) ) {
 					++flag;
 				}
-				
-				if (flag == 0) {
-					crewRankTemp.add(rank);
-					break;
-				}
+			}
+			
+			if (flag == 0) {
+				RankInfo rankInfoTemp = new RankInfo();
+				rankInfoTemp.setRank(rank);
+				rankListLocal.add(rankInfoTemp);
+				rankInfoTemp = null;
 			}
 		}
 		
-		return crewRankTemp;
+		return rankListLocal;
 	}
 }

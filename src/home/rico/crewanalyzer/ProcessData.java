@@ -6,18 +6,18 @@ import java.util.ArrayList;
 public class ProcessData {
 	
 	private ArrayList<CrewInfo> crewList;
-	private ArrayList<String> crewRank;
+	private ArrayList<RankInfo> rankList;
 	
 	public ProcessData() {
 		crewList = new ArrayList<CrewInfo>();
-		crewRank = new ArrayList<String>();
+		rankList = new ArrayList<RankInfo>();
 	}
 	
 	public void run() {
 		ImportFile importFile = new ImportFile(crewList);
 		crewList = importFile.run();
 		
-		crewRank = DataMiner.mineRank(crewList);
+		rankList = DataMiner.mineRank(crewList);
 	}
 
 }
