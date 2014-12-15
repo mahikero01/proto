@@ -18,6 +18,10 @@ public class ProcessData {
 		crewList = importFile.run();
 		
 		rankList = DataMiner.mineRank(crewList);
+		DataMiner.tallyRank(crewList, rankList);
+		
+		
+		System.out.println(" ");
 	}
 
 }

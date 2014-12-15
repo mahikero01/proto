@@ -41,9 +41,19 @@ public class DataMiner {
 	}
 	
 	//method for tally of crew ranks/positions
-	public static ArrayList<RankInfo> tallyRank(ArrayList<RankInfo> rankListRef) {
-		ArrayList<RankInfo> rankListLocal = new ArrayList<RankInfo>();
+	public static void tallyRank(ArrayList<CrewInfo> crewListRef, ArrayList<RankInfo> rankListRef ) {
 		
-		return rankListLocal;
+		String rank;
+		
+		for (CrewInfo currentCrew : crewListRef) {
+			rank = currentCrew.getRank();
+			for (RankInfo currentRank : rankListRef) {
+				if ( rank.equalsIgnoreCase(currentRank.getRank()) ) {
+					int count = currentRank.getCount();
+					currentRank.setCount(++count);
+					break;
+				}
+			}
+		}
 	}
 }
