@@ -1,0 +1,3 @@
+java.util.Calendar dateTime = java.util.Calendar.getInstance();
+
+System.out.printf("%tF\n", dateTime);
