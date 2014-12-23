@@ -1,10 +1,11 @@
 package home.rico.crewanalyzer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 //class for monthly crew stat record
-public class CrewStatRecord {
+public class CrewStatRecord implements Serializable {
 	
 	private Calendar recordDate;
 	private ArrayList<CrewInfo> crewList;
