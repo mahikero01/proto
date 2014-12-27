@@ -18,20 +18,23 @@ public class Testing {
 		
 		Calendar datetime = Calendar.getInstance();
 		st1.setRecordDate(datetime);
+		//System.out.printf("%tc\n", st1.getRecordDate());
 			
-		saveMyLibraryToSerialFile(st1);
+		//saveRecordFirst(st1);
 		
 		Calendar datetime2 = Calendar.getInstance();
 		st2.setRecordDate(datetime2);
+		System.out.printf("%tc\n", st2.getRecordDate());
 		
-		saveMyLibraryToSerialFile(st2);
+		//saveMyLibraryToSerialFile(st2);
 		
-		out = getMyLibraryFromSerialFile();
+		//getMyLibraryFromSerialFile();
 		
-		System.out.printf("%tc\n", out.getRecordDate());
-		System.out.printf("%tc\n", out.getRecordDate());
+		//System.out.printf("%tc\n", out.getRecordDate());
+		//System.out.printf("%tc\n", out.getRecordDate());
 		
 	}
+	/*
 	public static boolean saveMyLibraryToSerialFile(CrewStatRecord st) {
 			boolean saved = false;
 			try {
@@ -54,34 +57,51 @@ public class Testing {
 			return saved;
 			}
 
+	public static void saveRecordFirst (CrewStatRecord crewStatRecordRef) {
+		
+		try {
+			ObjectOutputStream objectOut = new ObjectOutputStream( 
+						new BufferedOutputStream( 
+								new FileOutputStream("testing.sr") 
+						) 
+			);
+			try {
+				objectOut.writeObject(crewStatRecordRef);
+			} finally {
+				objectOut.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static CrewStatRecord getMyLibraryFromSerialFile() {
-		CrewStatRecord ml = null;
+		
+		CrewStatRecord crewStatRecordLocal = null;
+		
 		try {
-		ObjectInputStream ois =
-		new ObjectInputStream(
-		new BufferedInputStream(
-		new FileInputStream("test.ser")));
-		try {
-			ml = (CrewStatRecord) ois.readObject();
-			
-			System.out.printf("%tc\n", ml.getRecordDate());
-			
-			ml = (CrewStatRecord) ois.readObject();
-			System.out.printf("%tc\n", ml.getRecordDate());
-			
-			
-			
+			ObjectInputStream objectIn = new ObjectInputStream(
+						new BufferedInputStream(
+								new FileInputStream("testing.sr")
+						)
+			);
+			try {
+				crewStatRecordLocal = (CrewStatRecord) objectIn.readObject();
+				
+				System.out.printf("%tc\n",crewStatRecordLocal.getRecordDate());
 			}
 			finally {
-			ois.close();
+				objectIn.close();
 			}
-			}
-			catch (Exception ex) {
-			ex.printStackTrace();
-			}
-			return ml;
-			}
+		} catch (Exception e) {
+				e.printStackTrace();
 		}
+			
+		return crewStatRecordLocal;
+	}
+*/
+}
 	
 	
 
