@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Calendar;
@@ -18,14 +19,15 @@ public class Testing {
 		
 		Calendar datetime = Calendar.getInstance();
 		st1.setRecordDate(datetime);
-		System.out.printf("%tc\n", st1.getRecordDate());
+		//System.out.printf("%tc\n", st1.getRecordDate());
 			
 		//saveRecordFirst(st1);
+		saveMyLibraryToSerialFile(st1);
+		getMyLibraryFromSerialFile();
 		
-		
-		Calendar datetime2 = Calendar.getInstance();
-		st2.setRecordDate(datetime2);
-		System.out.printf("%tc\n", st2.getRecordDate());
+		//Calendar datetime2 = Calendar.getInstance();
+		//st2.setRecordDate(datetime2);
+		//System.out.printf("%tc\n", st2.getRecordDate());
 		
 		
 		//saveMyLibraryToSerialFile(st2);
@@ -36,28 +38,23 @@ public class Testing {
 		//System.out.printf("%tc\n", out.getRecordDate());
 		
 	}
-	/*
-	public static boolean saveMyLibraryToSerialFile(CrewStatRecord st) {
-			boolean saved = false;
+	
+	public static void saveMyLibraryToSerialFile(CrewStatRecord crewStatRecordRef) {
+		try {
+			ObjectOutputStream objectOut = new ObjectOutputStream( 
+					new BufferedOutputStream( 
+							new FileOutputStream("testing.sr",true) 
+					) 
+		){ protected void writeStreamHeader() throws IOException { reset(); } };
 			try {
-			ObjectOutputStream oos =
-					new ObjectOutputStream(
-							new BufferedOutputStream(
-									new FileOutputStream("test.ser",true)));
-			// inner try block
-			try {
-			oos.writeObject(st);
-			saved = true;
+				objectOut.writeObject(crewStatRecordRef);
+			} finally {
+				objectOut.close();
 			}
-			finally {
-			oos.close();
-			}
-			}
-			catch (Exception ex) {
-			ex.printStackTrace();
-			}
-			return saved;
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void saveRecordFirst (CrewStatRecord crewStatRecordRef) {
 		
@@ -92,6 +89,14 @@ public class Testing {
 				crewStatRecordLocal = (CrewStatRecord) objectIn.readObject();
 				
 				System.out.printf("%tc\n",crewStatRecordLocal.getRecordDate());
+				
+				crewStatRecordLocal = (CrewStatRecord) objectIn.readObject();
+				
+				System.out.printf("%tc\n",crewStatRecordLocal.getRecordDate());
+				
+				crewStatRecordLocal = (CrewStatRecord) objectIn.readObject();
+				
+				System.out.printf("%tc\n",crewStatRecordLocal.getRecordDate());
 			}
 			finally {
 				objectIn.close();
@@ -102,7 +107,7 @@ public class Testing {
 			
 		return crewStatRecordLocal;
 	}
-*/
+
 }
 	
 	

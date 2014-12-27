@@ -5,7 +5,8 @@ class Test1 implements Serializable {
         os1.writeObject(new Test1());
         os1.close();
 
-        ObjectOutputStream os2 = new ObjectOutputStream(new FileOutputStream("test", true)) {
+        ObjectOutputStream os2 = new ObjectOutputStream(new FileOutputStream("test", true)) 
+        {
             protected void writeStreamHeader() throws IOException {
                 reset();
             }
