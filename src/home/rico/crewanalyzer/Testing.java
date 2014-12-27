@@ -26,6 +26,7 @@ public class Testing {
 		st2.setRecordDate(datetime2);
 		System.out.printf("%tc\n", st2.getRecordDate());
 		
+		
 		//saveMyLibraryToSerialFile(st2);
 		
 		//getMyLibraryFromSerialFile();
