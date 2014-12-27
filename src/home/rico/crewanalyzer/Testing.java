@@ -22,6 +22,7 @@ public class Testing {
 			
 		//saveRecordFirst(st1);
 		
+		
 		Calendar datetime2 = Calendar.getInstance();
 		st2.setRecordDate(datetime2);
 		System.out.printf("%tc\n", st2.getRecordDate());
